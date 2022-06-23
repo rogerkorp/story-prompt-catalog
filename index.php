@@ -17,17 +17,19 @@ include_once 'connect.php';
 
         <?php
 
+        $use_result = null;
+        $search = null;
+
         if (isset($_GET['search'])){
-            $search = $_GET['search'];
-            $use_result = search_catalog($search);
-        } else {
-            $search = null;
-            $use_result = null;
+            $search = trim( (string) $_GET['search']);
+            if (isset($search[0])){
+                $use_result = search_catalog($search);
+            };
         };
 
         function search_catalog($search){
             global $db_connection;
-            $query = "SELECT * FROM catalog WHERE prompt LIKE '%" . $search . "%' ORDER BY id DESC";
+            $query = "SELECT * FROM catalog WHERE prompt LIKE '%" . $search . "%' OR color LIKE '%" . $search . "%' OR id LIKE '%" . $search . "%' ORDER BY id DESC";
             $result = mysqli_query($db_connection, $query);
             if ($result && $result-> num_rows > 0){
                 $results = $result;
@@ -40,8 +42,7 @@ include_once 'connect.php';
         ?>
 
         <main>
-        <h1>prompt catalog</h1>
-        <h2>by roger korpics</h2>
+        <h1><img src="pen-nib-header.svg"> Prompt Catalog </h1>
             <div id="entry-form">
                 <form action="enter-prompt.php" method="post" id="prompt-form">
                     <textarea id="prompt" name="prompt" rows="3" maxlength="75" placeholder="Write a short summary of your idea..."></textarea>
@@ -51,7 +52,7 @@ include_once 'connect.php';
                         <input list="colors" name="color" id="tag-box"
                         pattern="white|beige|butter|peach|pink|coral|fuchsia|red|scarlet|orange|ocher|yellow|olive|chartreuse|green|avocado|mint|turquoise|lightblue|blue|violet|purple|brown|gray|black"
                         title="Must be a noted color"
-                        placeholder="chroma tag"
+                        placeholder="color tag..."
                         >
                         <datalist id="colors">
                             <option value="white">
@@ -83,7 +84,7 @@ include_once 'connect.php';
 
                     </div>
                     <div id="submit-box">
-                        <input type="submit" id="submit" name="submit" value="submit">
+                        <input type="submit" id="submit" name="submit" value="ENTER">
                     </div>
                 </form>
             </div>
@@ -91,24 +92,26 @@ include_once 'connect.php';
             <form id="search-form" action="" method="get">
                 <div id="search-input">
                         <div id="search-icon"><img id="search-svg" src="search-magnifying-glass.svg"></div>
-                        <input name="search" id="search-box" placeholder="search" value="<?php echo $search;?>">
+                        <input name="search" id="search-box" placeholder="Search..." value="<?php echo $search;?>">
                         <div id="search-submit-box">
-                        <input type="submit" id="search-submit" name="search-submit" value="search">
+                        <input type="submit" id="search-submit" name="search-submit" value="SEARCH">
                         </div>
                     </div>
             </form>
 
             <table id="catalog-listings">
-                <tr>
-                    <th>ID</th>
-                    <th>date</th>
-                    <th>#</th>
-                    <th>prompt</th>
-                </tr>
-
+               
             <?php
             
             if($use_result) {
+                echo ' <table id="catalog-listings">
+                <tr>
+                    <th class="header-id">ID</th>
+                    <th class="header-date">DATE</th>
+                    <th class="header-color">#</th>
+                    <th>PROMPT</th>
+                </tr>';
+
                 while($row = mysqli_fetch_assoc($use_result)){
                     echo '<tr>';
                     echo '<td class="table-id">' . $row['id'] . '</td>';
@@ -118,7 +121,11 @@ include_once 'connect.php';
                     echo '</tr>';
                 };
                 
-            } else if(!$search) {
+            } else if (!$use_result && $search != null) {
+                echo '<p id="search-error">No prompts found.</p>';
+            };
+                
+            /* else if(!$search) {
 
             $prompt_query = "SELECT * FROM catalog ORDER BY id DESC";
             $prompt_result = mysqli_query($db_connection, $prompt_query);
@@ -127,12 +134,12 @@ include_once 'connect.php';
                 echo '<tr>';
                 echo '<td class="table-id">' . $row['id'] . '</td>';
                 echo '<td class="table-date">' . $row['date'] . '</td>';
-                echo '<td class="table-color"><span class="catalog-color" style="background-color:var(--' . $row['color'] . ');">' . $row['color'] . '</span></td>';
+                echo '<td class="table-color"><div class="catalog-color" style="background-color:var(--' . $row['color'] . ');"></td>';
                 echo '<td>' . $row['prompt'] . '</td>';
                 echo '</tr>';
             };
 
-            };
+            }; */
             ?>
             </table>
 
@@ -140,7 +147,7 @@ include_once 'connect.php';
 
         <script src="script.js"></script>
         <footer>
-            <p>created by <b>roger korpics</b>. june 2022.</p>
+            <p>Project Created by <b>Roger Korpics</b> – June 2022</p>
         </footer>
     </body>
 </html>
