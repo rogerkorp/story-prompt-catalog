@@ -14,6 +14,31 @@ include_once 'connect.php';
         <link rel="icon" sizes="any" type="image/svg+xml" href="pen-nib.svg">
     </head>
     <body> 
+
+        <?php
+
+        if (isset($_GET['search'])){
+            $search = $_GET['search'];
+            $use_result = search_catalog($search);
+        } else {
+            $search = null;
+            $use_result = null;
+        };
+
+        function search_catalog($search){
+            global $db_connection;
+            $query = "SELECT * FROM catalog WHERE prompt LIKE '%" . $search . "%' ORDER BY id DESC";
+            $result = mysqli_query($db_connection, $query);
+            if ($result && $result-> num_rows > 0){
+                $results = $result;
+            } else {
+                $results = null;
+            }
+            return $results;
+        };
+
+        ?>
+
         <main>
         <h1>prompt catalog</h1>
         <h2>by roger korpics</h2>
@@ -62,6 +87,17 @@ include_once 'connect.php';
                     </div>
                 </form>
             </div>
+            
+            <form id="search-form" action="" method="get">
+                <div id="search-input">
+                        <div id="search-icon"><img id="search-svg" src="search-magnifying-glass.svg"></div>
+                        <input name="search" id="search-box" placeholder="search" value="<?php echo $search;?>">
+                        <div id="search-submit-box">
+                        <input type="submit" id="search-submit" name="search-submit" value="search">
+                        </div>
+                    </div>
+            </form>
+
             <table id="catalog-listings">
                 <tr>
                     <th>ID</th>
@@ -71,6 +107,18 @@ include_once 'connect.php';
                 </tr>
 
             <?php
+            
+            if($use_result) {
+                while($row = mysqli_fetch_assoc($use_result)){
+                    echo '<tr>';
+                    echo '<td class="table-id">' . $row['id'] . '</td>';
+                    echo '<td class="table-date">' . $row['date'] . '</td>';
+                    echo '<td class="table-color"><span class="catalog-color" style="background-color:var(--' . $row['color'] . ');">' . $row['color'] . '</span></td>';
+                    echo '<td>' . $row['prompt'] . '</td>';
+                    echo '</tr>';
+                };
+                
+            } else if(!$search) {
 
             $prompt_query = "SELECT * FROM catalog ORDER BY id DESC";
             $prompt_result = mysqli_query($db_connection, $prompt_query);
@@ -84,6 +132,7 @@ include_once 'connect.php';
                 echo '</tr>';
             };
 
+            };
             ?>
             </table>
 
