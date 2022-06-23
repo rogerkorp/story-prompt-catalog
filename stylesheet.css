@@ -83,6 +83,68 @@ main{
      margin: 0;
 }
 
+#search-form{
+     display: flex;
+     justify-content: right;
+}
+
+#search-input{
+     display: flex;
+     margin-top: 1em;
+     margin-left: 1em;
+
+}
+
+#search-icon{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 1.5em;
+     border-top: .1em solid black;
+     border-bottom: .1em solid black;
+     border-left: .1em solid black;
+     border-right: none;
+     border-radius: .15em 0 0 .15em;
+     background-color: white;
+     color: white;
+     font-size: 1.5em;
+}
+
+#search-box{
+     font-size: 1.25em;
+     border-top: .1em solid black;
+     border-bottom: .1em solid black;
+     border-right: none;
+     border-left: none;
+     width: 100%;
+     text-align: left;
+     margin: 0;
+     padding: .75em;;
+}
+
+#search-submit{
+     width: 6em;
+     background-color: var(--black);
+     color: var(--white);
+     font-size: 1.25em;
+     border-radius: 0 .25em .25em 0;
+     transition: background-color .3s;
+     border: none;
+     height: 100%;
+     margin-right: .75em;
+}
+
+#search-svg{
+     margin-left: .5em;
+     border: none;
+}
+
+#search-submit:hover{
+     cursor: pointer;
+     background-color: var(--blue);
+}
+
+
 #submit{
      width: 6em;
      margin-top: .4em;
