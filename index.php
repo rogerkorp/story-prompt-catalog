@@ -11,14 +11,15 @@ include_once 'connect.php';
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Prompt Catalog</title>
         <link rel="stylesheet" href="stylesheet.css">
-        <link rel="icon" sizes="any" type="image/svg+xml" href="">
+        <link rel="icon" sizes="any" type="image/svg+xml" href="pen-nib.svg">
     </head>
     <body> 
         <main>
         <h1>prompt catalog</h1>
         <h2>by roger korpics</h2>
+            <div id="entry-form">
                 <form action="enter-prompt.php" method="post" id="prompt-form">
-                    <textarea id="prompt" name="prompt" rows="2" maxlength="75" placeholder="Write a short summary of your idea..."></textarea>
+                    <textarea id="prompt" name="prompt" rows="3" maxlength="75" placeholder="Write a short summary of your idea..."></textarea>
 
                     <div id="tag-input">
                         <div id="tag-icon">#</div>
@@ -54,11 +55,13 @@ include_once 'connect.php';
                             <option value="gray">
                             <option value="black">
                         </datalist>
+
                     </div>
                     <div id="submit-box">
                         <input type="submit" id="submit" name="submit" value="submit">
                     </div>
                 </form>
+            </div>
             <table id="catalog-listings">
                 <tr>
                     <th>ID</th>
@@ -74,7 +77,7 @@ include_once 'connect.php';
             
             while($row = mysqli_fetch_assoc($prompt_result)){
                 echo '<tr>';
-                echo '<td>' . $row['id'] . '</td>';
+                echo '<td class="table-id">' . $row['id'] . '</td>';
                 echo '<td class="table-date">' . $row['date'] . '</td>';
                 echo '<td class="table-color"><span class="catalog-color" style="background-color:var(--' . $row['color'] . ');">' . $row['color'] . '</span></td>';
                 echo '<td>' . $row['prompt'] . '</td>';
@@ -86,6 +89,9 @@ include_once 'connect.php';
 
         </main>
 
-        <script src=""></script>
+        <script src="script.js"></script>
+        <footer>
+            <p>created by <b>roger korpics</b>. june 2022.</p>
+        </footer>
     </body>
 </html>
