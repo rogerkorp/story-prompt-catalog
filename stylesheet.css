@@ -1,5 +1,10 @@
+/* ---------- Custom Property Declarations ---------- */
+
 :root {
-/* Custom Colors (adapted from the Designers Dictionary for Color */
+     /* Custom color values */
+     /* Adapted from "The Designer's Dictionary of Color" */
+     /* Written in order of hue */
+
      --white: #e3e3e3;
      --beige: #e8e9c7;
     --butter: #f3df9c;
@@ -7,7 +12,7 @@
       --pink: #f0b4bf;
      --coral: #ee9c89;
    --fuchsia: #ef5799;
-       --red: #ff4646; /**/
+       --red: #ff4646;
    --scarlet: #ff774a;
     --orange: #feac59;
      --ocher: #f0c147;
@@ -26,14 +31,18 @@
       --gray: #ccc5c5;
      --black: #585858;
 
+     /* User interface accent colors */
+     /* Used for buttons, logos, eyecandy, etc. */
 
      --ui-primary-accent: #7158cd;
      --ui-dark-accent: #321080;
 }
 
-/* Custom Fonts */
 
-/* poppins-300 - latin */
+
+/* ---------- Custom Font Declarations ---------- */
+
+/* Poppins 300 */
 @font-face {
      font-family: 'Poppins';
      font-style: normal;
@@ -47,7 +56,7 @@
           url('fonts/poppins-v19-latin-300.svg#Poppins') format('svg'); /* Legacy iOS */
    }
    
-   /* poppins-300italic - latin */
+   /* Poppins 300 – Italic */
    @font-face {
      font-family: 'Poppins';
      font-style: italic;
@@ -61,7 +70,7 @@
           url('fonts/poppins-v19-latin-300italic.svg#Poppins') format('svg'); /* Legacy iOS */
    }
    
-   /* poppins-regular - latin */
+   /* Poppins Regular */
    @font-face {
      font-family: 'Poppins';
      font-style: normal;
@@ -75,7 +84,7 @@
           url('fonts/poppins-v19-latin-regular.svg#Poppins') format('svg'); /* Legacy iOS */
    }
    
-   /* poppins-italic - latin */
+   /* Poppins Italic */
    @font-face {
      font-family: 'Poppins';
      font-style: italic;
@@ -89,7 +98,7 @@
           url('fonts/poppins-v19-latin-italic.svg#Poppins') format('svg'); /* Legacy iOS */
    }
    
-   /* poppins-500 - latin */
+   /* Poppins 500 */
    @font-face {
      font-family: 'Poppins';
      font-style: normal;
@@ -103,7 +112,7 @@
           url('fonts/poppins-v19-latin-500.svg#Poppins') format('svg'); /* Legacy iOS */
    }
    
-   /* poppins-500italic - latin */
+   /* Poppins 500 – Italic */
    @font-face {
      font-family: 'Poppins';
      font-style: italic;
@@ -117,7 +126,7 @@
           url('fonts/poppins-v19-latin-500italic.svg#Poppins') format('svg'); /* Legacy iOS */
    }
    
-   /* poppins-600 - latin */
+   /* Poppins 600 */
    @font-face {
      font-family: 'Poppins';
      font-style: normal;
@@ -130,8 +139,22 @@
           url('fonts/poppins-v19-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
           url('fonts/poppins-v19-latin-600.svg#Poppins') format('svg'); /* Legacy iOS */
    }
+
+/* Poppins 600 - Italic */
+     @font-face {
+          font-family: 'Poppins';
+          font-style: italic;
+          font-weight: 600;
+          src: url('fonts/poppins-v19-latin-600italic.eot'); /* IE9 Compat Modes */
+          src: local(''),
+               url('fonts/poppins-v19-latin-600italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+               url('fonts/poppins-v19-latin-600italic.woff2') format('woff2'), /* Super Modern Browsers */
+               url('fonts/poppins-v19-latin-600italic.woff') format('woff'), /* Modern Browsers */
+               url('fonts/poppins-v19-latin-600italic.ttf') format('truetype'), /* Safari, Android, iOS */
+               url('fonts/poppins-v19-latin-600italic.svg#Poppins') format('svg'); /* Legacy iOS */
+        }
    
-   /* poppins-700 - latin */
+   /* Poppins 700 */
    @font-face {
      font-family: 'Poppins';
      font-style: normal;
@@ -145,7 +168,7 @@
           url('fonts/poppins-v19-latin-700.svg#Poppins') format('svg'); /* Legacy iOS */
    }
    
-   /* poppins-700italic - latin */
+   /* Poppins 700 - Italic */
    @font-face {
      font-family: 'Poppins';
      font-style: italic;
@@ -158,22 +181,8 @@
           url('fonts/poppins-v19-latin-700italic.ttf') format('truetype'), /* Safari, Android, iOS */
           url('fonts/poppins-v19-latin-700italic.svg#Poppins') format('svg'); /* Legacy iOS */
    }
-   
-   /* poppins-600italic - latin */
-   @font-face {
-     font-family: 'Poppins';
-     font-style: italic;
-     font-weight: 600;
-     src: url('fonts/poppins-v19-latin-600italic.eot'); /* IE9 Compat Modes */
-     src: local(''),
-          url('fonts/poppins-v19-latin-600italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-          url('fonts/poppins-v19-latin-600italic.woff2') format('woff2'), /* Super Modern Browsers */
-          url('fonts/poppins-v19-latin-600italic.woff') format('woff'), /* Modern Browsers */
-          url('fonts/poppins-v19-latin-600italic.ttf') format('truetype'), /* Safari, Android, iOS */
-          url('fonts/poppins-v19-latin-600italic.svg#Poppins') format('svg'); /* Legacy iOS */
-   }
-   
-   /* poppins-800 - latin */
+      
+   /* Poppins 800 */
    @font-face {
      font-family: 'Poppins';
      font-style: normal;
@@ -187,7 +196,7 @@
           url('fonts/poppins-v19-latin-800.svg#Poppins') format('svg'); /* Legacy iOS */
    }
    
-   /* poppins-800italic - latin */
+   /* Poppins 800 - Italic */
    @font-face {
      font-family: 'Poppins';
      font-style: italic;
@@ -201,21 +210,138 @@
           url('fonts/poppins-v19-latin-800italic.svg#Poppins') format('svg'); /* Legacy iOS */
    }
 
-body{
+
+
+/* ---------- HTML Tag Rules ---------- */
+
+body{ /* Effects the main body of the document */
      background-color: rgb(255, 255, 255);
      color: #1b1028;
      margin: 0;
 }
 
-
-main{
-     max-width: 765px;
-     margin: auto;
+footer{ /* Effects the footer information on the document */
+     align-items: center;
+     display: flex;
      font-family: 'Poppins';
+     justify-content: center;
+     margin-top: 1em;
+}
+
+h1{ /* Used for Prompt Catalog header logo */
+     margin-bottom: 1em;
+     margin-left: .5em;
+}
+
+h2{ /* Old rules. IIRC there used to be a subheader with my name under the H1 tags, but that info has since been moved to the footer. */
+     font-weight: normal;
+     margin-bottom: 1.5em;
+     margin-top: .5em;
+}
+
+input:focus, textarea:focus, select:focus{ /* Removes the default outline from input fields. */
+     outline:none;
+}
+
+main{ /* Effects the forms and tables */
+     font-family: 'Poppins';
+     margin: auto;
+     max-width: 765px;
+}
+
+table{ /* Effects the general style of the table */
+     border-collapse: collapse;
+     width: 100%;
+}
+
+td{ /* Effects the individual cells of information below the table headers */
+     border-bottom: .05em solid rgb(219, 219, 219);
+     padding: 1em;
+}
+
+textarea{ /* Effects the prompt entry field */
+     resize: none;
+}
+
+th{ /* Effects the header cells on the table */
+     border-bottom: .1em solid rgb(219, 219, 219);
+     padding-bottom: .5em;
 }
 
 
-#prompt-form{
+tr{ /* Effects the individual rows of information on the table. */
+     border-radius: .25em;
+     transition: background-color .25s;
+}
+
+tr:hover{ /* Enables the useful hover highlight effect on rows */
+     background-color: rgb(247, 247, 248);
+}
+
+
+
+/* ----------  Class-Specific Rules ---------- */
+
+.catalog-color{ /* Creates the general template for the color tags in the table. Background color is set to "none" by default. */
+     background-color: none;
+     border-radius: .15em;
+     color: white;
+     display: flex;
+     justify-content: center;
+     padding: .25em;
+     text-align: center;
+}
+
+.count{ /* Specifically used for the message underneath the search bar that indicates the total of entries inside the database */
+     color: rgb(165, 165, 165);
+     display: flex;
+     font-size: .75em;
+     justify-content: center;
+}
+
+.header-text{ /* Effects the header text in the site logo */
+     margin-left: .5em;
+}
+
+.table-date{ /* Effects the "date" column display in the catalog. */
+     font-variant-numeric: tabular-nums;
+     width: 6em;
+}
+
+.table-id{ /* Effects the "ID" column display in the catalog. */
+     font-variant-numeric: tabular-nums;
+     font-weight: bold;
+     text-align: center;
+}
+
+
+
+/* ----------  ID-Specific Rules ---------- */
+
+#catalog-listings{ /* Specifically effects the table used to list catalog entries */
+     margin-top: 1.5em;
+}
+
+#entry-form{ /* Effects the div that wraps around the forms that are used to submit prompts into the catalog */
+     background-color: rgb(247, 247, 248);
+     margin: 0;
+     padding: 1em;
+}
+
+#prompt{ /* Effects the <textarea> field used to write the prompts */
+     border-radius: .25em;
+     border: .075em solid rgb(219, 219, 219);
+     display: flex;
+     font-family: 'Poppins';
+     font-size: 1em;
+     grid-area: 1 / 1 / 2 / 3;
+     justify-content: center;
+     margin-bottom: .5em;
+     overflow: auto;
+     padding: 1.5em;
+}
+
+#prompt-form{ /* Effects the <form> tags containing the input fields used for catalog entry */
      display: grid;
      grid-template-columns: 1fr 1fr;
      grid-template-rows: 2fr 4em;
@@ -223,269 +349,156 @@ main{
                          'tag-input submit-box';
 }
 
-#prompt{
-     grid-area: 1 / 1 / 2 / 3;
-     border: .075em solid rgb(219, 219, 219);
-     border-radius: .25em;
-     padding: 1.5em;
-     font-size: 1em;
-     display: flex;
-     margin-bottom: .5em;
-     justify-content: center;
-     overflow: auto;
-     font-family: 'Poppins';
-}
-
-#tag-input{
-     display: flex;
-     margin-top: .5em;
-
-}
-
-#tag-icon{
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     width: 1.5em;
-     border-radius: .15em 0 0 .15em;
-     background-color: rgb(190, 190, 190);
-     color: white;
-     font-size: 1.5em;
-}
-
-#tag-box{
-     border-radius: 0 .25em .25em 0;
-     font-size: 1em;
-     border: .05em solid rgb(190, 190, 190);
-     max-width: 8em;
-     text-align: center;
-     margin: 0;
-     font-family: 'Poppins';
-}
-
-#search-form{
-     display: flex;
-     justify-content: center;
-
-}
-
-#search-input{
-     display: flex;
-     margin-top: 3em;
-     margin-left: 1em;
-
-}
-
-#search-icon{
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     width: 3em;
-     border-top: .05em solid rgb(219, 219, 219);
+#search-box{ /* Effects the input field for search queries  */
      border-bottom: .05em solid rgb(219, 219, 219);
-     border-left: .05em solid rgb(219, 219, 219);
-     border-right: none;
-     border-radius: .25em 0 0 .25em;
-     background-color: white;
-     color: white;
-     font-size: 1em;
-}
-
-#search-box{
-     font-size: 1em;
-     border-top: .05em solid rgb(219, 219, 219);
-     border-bottom: .05em solid rgb(219, 219, 219);
-     border-right: none;
      border-left: none;
-     width: 100%;
-     text-align: left;
+     border-right: none;
+     border-top: .05em solid rgb(219, 219, 219);
+     font-family: 'Poppins';
+     font-size: 1em;
      margin: 0;
      padding: .75em;;
-     font-family: 'Poppins';
+     text-align: left;
+     width: 100%;
 }
 
-#search-submit{
-     width: 6em;
-     background-color: var(--ui-primary-accent);
-     color: var(--white);
+#search-error{ /* Effects the error message that occurs if no matches were found in database query */
+     color: var(--red);
+     display: flex;
+     justify-content: center;
+     padding-top: 2em;
+}
+
+#search-form{ /* Effects the <form> tags used to nest the search box. */
+     display: flex;
+     justify-content: center;
+
+}
+
+#search-input{ /* Effects the <div> tags inside the <form> tags used to nest the search box.  */
+     display: flex;
+     margin-left: 1em;
+     margin-top: 3em;
+
+}
+
+#search-icon{ /* Effects the <div> next to the input field that contains the search icon.  */
+     align-items: center;
+     background-color: white;
+     border-bottom: .05em solid rgb(219, 219, 219);
+     border-left: .05em solid rgb(219, 219, 219);
+     border-radius: .25em 0 0 .25em;
+     border-right: none;
+     border-top: .05em solid rgb(219, 219, 219);
+     color: white;
+     display: flex;
      font-size: 1em;
+     justify-content: center;
+     width: 3em;
+}
+
+#search-submit{ /* Effects the "SEARCH" button */
+     background-color: var(--ui-primary-accent);
      border-radius: 0 .25em .25em 0;
-     transition: background-color .3s;
      border: none;
+     color: var(--white);
+     font-family: 'Poppins';
+     font-size: 1em;
      height: 100%;
      margin-right: .75em;
-     font-family: 'Poppins';
-}
-
-#search-svg{
-     margin-left: .5em;
-     border: none;
-}
-
-#search-submit:hover{
-     cursor: pointer;
-     background-color: var(--ui-dark-accent);
-}
-
-
-#submit{
-     width: 6em;
-     margin-top: .4em;
-     background-color: var(--ui-primary-accent);
-     color: var(--white);
-     font-size: 1em;
-     border-radius: .25em;
      transition: background-color .3s;
-     border: none;
-     font-family: 'Poppins';
+     width: 6em;
 }
 
-#submit:hover{
-     cursor: pointer;
+#search-submit:hover{ /* Gives the "SEARCH" button a cool hover effect  */
      background-color: var(--ui-dark-accent);
+     cursor: pointer;
 }
 
-#submit-box{
+#search-svg{ /* Effects the search icon SVG file  */
+     border: none;
+     margin-left: .5em;
+}
+
+#submit{ /* Effects the "ENTER" button */
+     background-color: var(--ui-primary-accent);
+     border-radius: .25em;
+     border: none;
+     color: var(--white);
+     font-family: 'Poppins';
+     font-size: 1em;
+     margin-top: .4em;
+     transition: background-color .3s;
+     width: 6em;
+}
+
+#submit:hover{ /* Give the "ENTER" button a cool hover effect  */
+     background-color: var(--ui-dark-accent);
+     cursor: pointer;
+}
+
+#submit-box{ /* Effects the <div> that contains the "ENTER" button  */
      display:flex;
      justify-content: right;
 }
 
-#search-error{
+#tag-input{  /* Effects the <div> that contains the color tag inputs */
      display: flex;
-     justify-content: center;
-     padding-top: 2em;
-     color: var(--red)
-}
-
-#catalog-listings{
-     margin-top: 1.5em;
-}
-
-table{
-     border-collapse: collapse;
-     width: 100%;
-}
-
-th{
-     padding-bottom: .5em;
-     border-bottom: .1em solid rgb(219, 219, 219);
-}
-
-td{
-     padding: 1em;
-     border-bottom: .05em solid rgb(219, 219, 219);
-}
-
-tr{
-     transition: background-color .25s;
-     border-radius: .25em;
-}
-
-tr:hover{
-     background-color: rgb(247, 247, 248);
-}
-
-.table-date{
-     width: 6em;
-     font-variant-numeric: tabular-nums;
-}
-
-.table-id{
-     font-variant-numeric: tabular-nums;
-     text-align: center;
-     font-weight: bold;
-}
-
-
-h1{
-     margin-bottom: 1em;
-}
-
-h2{
-     font-weight: normal;
      margin-top: .5em;
-     margin-bottom: 1.5em;
+
 }
 
-.catalog-color{
-     border-radius: .15em;
-     background-color: none;
-     padding: .25em;
-     color: white;
-     text-align: center;
-     display: flex;
-     justify-content: center;
-}
-
-textarea{
-     resize: none;
-}
-
-footer{
-     margin-top: 1em;
-     display: flex;
+#tag-icon{ /* Effects the <div> next to the tag-box that contains the "#" symbol */
      align-items: center;
-     justify-content: center;
-     font-family: 'Poppins';
-}
-
-h1{
-     margin-left: .5em;
-}
-
-.count{
+     background-color: rgb(190, 190, 190);
+     border-radius: .15em 0 0 .15em;
+     color: white;
      display: flex;
-     font-size: .75em;
+     font-size: 1.5em;
      justify-content: center;
-     color: rgb(165, 165, 165);
+     width: 1.5em;
 }
 
-.header-text{
-     margin-left: .5em;
-}
-
-#entry-form{
-     background-color: rgb(247, 247, 248);
-     padding: 1em;
+#tag-box{ /* Effects the input box for the color tags */
+     border-radius: 0 .25em .25em 0;
+     border: .05em solid rgb(190, 190, 190);
+     font-family: 'Poppins';
+     font-size: 1em;
      margin: 0;
+     max-width: 8em;
+     text-align: center;
 }
 
-input:focus, textarea:focus, select:focus{
-     outline:none;
+
+
+/* ----------  Media Queries ---------- */
+
+@media screen and (max-width: 480px){
+     .header-color, .table-color{ /* Hides the color-tag table column unless the browser window is at least 480px wide */
+          display: none;
+     }
 }
 
 @media screen and (max-width: 700px){
-     .header-date, .table-date{
+     .header-date, .table-date{ /* Hides the date table column unless the browser window is at least 700px wide */
           display: none;
      }
 }
 
-
-@media screen and (max-width: 480px){
-     .header-color, .table-color{
-          display: none;
-     }
-}
 
 @media screen and (min-width: 400px){
-     #entry-form{
-          padding: 1em;
-          background-color: rgb(247, 247, 248);
-          border: none;
-     }
-
-     #tag-box{
+     #tag-box{ /* Changes the size of the tag box so that it uses more space on larger screen devices. */
           max-width: 10em;
      }
 }
 
 @media screen and (min-width: 700px){
      body{
-          margin: 1em;
+          margin: 1em; /* Only adds a margin once the browser window exceeds the max width of the <body> */
      }
 
      #entry-form{
-          border-radius: .5em;
+          border-radius: .5em; /* Only gives the entry form box rounded corners in cases where there is padding on the sides of the box. */
      }
 }
 
