@@ -99,7 +99,6 @@ include_once 'connect.php';
                         </div>
                     </div>
             </form>
-
             <?php
 
             
@@ -126,8 +125,6 @@ include_once 'connect.php';
             mysqli_free_result($num_result);
 
             ?>
-
-
             <table id="catalog-listings">
                
             <?php
