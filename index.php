@@ -11,7 +11,7 @@ include_once 'connect.php';
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Prompt Catalog</title>
         <link rel="stylesheet" href="stylesheet.css">
-        <link rel="icon" sizes="any" type="image/svg+xml" href="pen-nib.svg">
+        <link rel="icon" sizes="any" type="image/svg+xml" href="pen-nib-logo.svg">
     </head>
     <body> 
 
@@ -37,12 +37,13 @@ include_once 'connect.php';
                 $results = null;
             }
             return $results;
+            mysqli_free_result($result);
         };
 
         ?>
 
         <main>
-        <h1><img src="pen-nib-header.svg"> Prompt Catalog </h1>
+        <h1><img src="pen-nib-logo.svg"><span class="header-text">Prompt Catalog</span></h1>
             <div id="entry-form">
                 <form action="enter-prompt.php" method="post" id="prompt-form">
                     <textarea id="prompt" name="prompt" rows="3" maxlength="75" placeholder="Write a short summary of your idea..."></textarea>
@@ -99,6 +100,34 @@ include_once 'connect.php';
                     </div>
             </form>
 
+            <?php
+
+            
+
+                $num_query = "SELECT COUNT(id) from `catalog`";
+                $num_result = mysqli_query($db_connection, $num_query);
+            
+
+            if ($num_result){
+                $count = mysqli_num_rows($num_result);
+                if ($count <= 1){
+                echo '<p class="count">There is currently ' . $count . ' prompt inside the catalog.</p>';
+                }
+                if ($count > 1){
+                    echo '<p class="count">There is currently ' . $count . ' prompts inside the catalog.</p>';
+                }
+            };
+
+            if (!$num_result){
+                echo 'There are currently no prompts inside the catalog.';
+                };
+
+
+            mysqli_free_result($num_result);
+
+            ?>
+
+
             <table id="catalog-listings">
                
             <?php
@@ -122,7 +151,7 @@ include_once 'connect.php';
                 };
                 
             } else if (!$use_result && $search != null) {
-                echo '<p id="search-error">No prompts found.</p>';
+                echo '<p id="search-error">No results found.</p>';
             };
                 
             /* else if(!$search) {
@@ -151,3 +180,8 @@ include_once 'connect.php';
         </footer>
     </body>
 </html>
+<?php
+
+
+
+?>

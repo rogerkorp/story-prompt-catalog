@@ -1,30 +1,30 @@
 :root {
 /* Custom Colors (adapted from the Designers Dictionary for Color */
-     --white: #efefef;
-     --beige: #f5f5dc;
-    --butter: #fff3cc;
-     --peach: #ffe5b4;
-      --pink: #ffc0cb;
-     --coral: #f4b6a8;
-   --fuchsia: #ff7db6;
-       --red: #f96d6d; /**/
-   --scarlet: #fd7949;
+     --white: #e3e3e3;
+     --beige: #e8e9c7;
+    --butter: #f3df9c;
+     --peach: #ebbf7d;
+      --pink: #f0b4bf;
+     --coral: #ee9c89;
+   --fuchsia: #ef5799;
+       --red: #ff4646; /**/
+   --scarlet: #ff774a;
     --orange: #feac59;
-     --ocher: #f6c954;
-    --yellow: #fcff75;
-     --olive: #afbc5d;
---chartreuse: #c5ff8c;
-     --green: #70d670;
-   --avocado: #9cb790;
-      --mint: #b9eedb;
+     --ocher: #f0c147;
+    --yellow: #ffe600;
+     --olive: #99ae19;
+--chartreuse: #a3ea5e;
+     --green: #52af52;
+   --avocado: #547d40;
+      --mint: #a0e8ce;
  --turquoise: #67e7da;
- --lightblue: #add8e6;
-      --blue: #9fb4fe;
-    --violet: #c793fb;
-    --purple: #eaa8ea;
+ --lightblue: #badeff;
+      --blue: #5b76d6;
+    --violet: #935acd;
+    --purple: #cd6dbe;
      --brown: #be9f7f;
-      --gray: #d9d9d9;
-     --black: #8d8d8d;
+      --gray: #ccc5c5;
+     --black: #585858;
 
 
      --ui-primary-accent: #7158cd;
@@ -368,12 +368,21 @@ table{
 
 th{
      padding-bottom: .5em;
-     border-bottom: .075em solid #121212;
+     border-bottom: .1em solid rgb(219, 219, 219);
 }
 
 td{
      padding: 1em;
-     border-bottom: .075em solid rgb(196, 196, 196);
+     border-bottom: .05em solid rgb(219, 219, 219);
+}
+
+tr{
+     transition: background-color .25s;
+     border-radius: .25em;
+}
+
+tr:hover{
+     background-color: rgb(247, 247, 248);
 }
 
 .table-date{
@@ -384,6 +393,7 @@ td{
 .table-id{
      font-variant-numeric: tabular-nums;
      text-align: center;
+     font-weight: bold;
 }
 
 
@@ -401,8 +411,7 @@ h2{
      border-radius: .15em;
      background-color: none;
      padding: .25em;
-     color: #121212;
-     font-weight: bold;
+     color: white;
      text-align: center;
      display: flex;
      justify-content: center;
@@ -418,6 +427,21 @@ footer{
      align-items: center;
      justify-content: center;
      font-family: 'Poppins';
+}
+
+h1{
+     margin-left: .5em;
+}
+
+.count{
+     display: flex;
+     font-size: .75em;
+     justify-content: center;
+     color: rgb(165, 165, 165);
+}
+
+.header-text{
+     margin-left: .5em;
 }
 
 #entry-form{
