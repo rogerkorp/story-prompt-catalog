@@ -303,6 +303,26 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
      margin-left: .5em;
 }
 
+.login-form{
+     align-items: center;
+     background-color: white;
+     border-radius: .5em;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     width: 20em;
+}
+
+.login-textbox{
+     border-radius: .25em;
+     border: .05em solid rgb(190, 190, 190);
+     font-family: 'Poppins';
+     font-size: 1em;
+     margin-top: 1em;
+     max-width: 16em;
+     padding: .5em;
+};
+
 .table-date{ /* Effects the "date" column display in the catalog. */
      font-variant-numeric: tabular-nums;
      width: 6em;
@@ -326,6 +346,10 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
      background-color: rgb(247, 247, 248);
      margin: 0;
      padding: 1em;
+}
+
+#login-body{
+     background-color: var(--ui-primary-accent);
 }
 
 #prompt{ /* Effects the <textarea> field used to write the prompts */

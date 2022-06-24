@@ -2,10 +2,6 @@
 
 include_once 'connect.php';
 
-$password = "admin";
-$hashed_password = sha1($password);
-echo $hashed_password
-
 ?>
 
 <!DOCTYPE html>
@@ -17,12 +13,12 @@ echo $hashed_password
         <link rel="stylesheet" href="stylesheet.css">
         <link rel="icon" sizes="any" type="image/svg+xml" href="pen-nib-logo.svg">
     </head>
-    <body> 
+    <body id="login-body"> 
         <main>
-            <form action="login-process.php" class="form-group" method="post">
-                <input type="text" name="username" id="username" placeholder="Username" value="">
-                <input type="text" name="password" id="password" placeholder="Password" value="">
-                <input id="submit" type="submit" name="submit" value="Log In">
+            <form action="login-process.php" class="login-form" method="post">
+                <input class="login-textbox" type="text" name="username" id="username" placeholder="Enter your username" value="">
+                <input class="login-textbox" type="text" name="password" id="password" placeholder="Enter your password" value="">
+                <input class="login-submit" id="submit" type="submit" name="submit" value="LOG IN">
             </form>
     
         </main>
