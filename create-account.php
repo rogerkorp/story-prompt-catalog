@@ -17,10 +17,10 @@ include_once 'connect.php';
         <main>
             <form action="login-process.php" class="login-form" method="post">
             <h1 class="login-logo"><img src="pen-nib-logo.svg"><span class="login-logo-text">Prompt Catalog</span></h1>
-            <p id="login-subheader">Please log in to continue</p>
+            <p id="login-subheader">Create your Account</p>
                 <input class="login-textbox" type="text" name="username" id="username" placeholder="Enter your username" value="">
                 <input class="login-textbox" type="password" name="password" id="password" placeholder="Enter your password" value="">
-                <input class="login-submit" id="login-submit" type="submit" name="login-submit" value="Log In">
+                <input class="login-submit" id="login-submit" type="submit" name="account-submit" value="Create your Account">
             </form>
     
         </main>

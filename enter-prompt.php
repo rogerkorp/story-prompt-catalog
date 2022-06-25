@@ -27,8 +27,6 @@ if($db_results){
     header ('Location: index.php');
 } else {
     echo "Query failed.";
-}
-} else {
-    echo ' "prompt-form" returned no values. Check the names?';
-}
+};
+};
 ?>

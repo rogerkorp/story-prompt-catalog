@@ -109,13 +109,10 @@ include_once 'connect.php';
             
 
             if ($num_result){
-                $count = mysqli_num_rows($num_result);
-                if ($count <= 1){
-                echo '<p class="count">There is currently ' . $count . ' prompt inside the catalog.</p>';
-                }
-                if ($count > 1){
-                    echo '<p class="count">There is currently ' . $count . ' prompts inside the catalog.</p>';
-                }
+                $count_array = mysqli_fetch_array($num_result);
+                $count = $count_array[0];
+
+                    echo '<p class="count">There are currently ' . $count . ' prompts inside the catalog.</p>';
             };
 
             if (!$num_result){

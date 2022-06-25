@@ -12,4 +12,6 @@ if (!$db_connection){
     echo 'No connection to database. Check the connect file.';
 };
 
+session_start();
+
 ?>
