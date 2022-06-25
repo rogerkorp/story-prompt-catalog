@@ -85,7 +85,7 @@ include_once 'connect.php';
 
                     </div>
                     <div id="submit-box">
-                        <input type="submit" id="submit" name="submit" value="ENTER">
+                        <input type="submit" id="submit" name="submit" value="Enter">
                     </div>
                 </form>
             </div>
@@ -95,7 +95,7 @@ include_once 'connect.php';
                         <div id="search-icon"><img id="search-svg" src="search-magnifying-glass.svg"></div>
                         <input name="search" id="search-box" placeholder="Search..." value="<?php echo $search;?>">
                         <div id="search-submit-box">
-                        <input type="submit" id="search-submit" name="search-submit" value="SEARCH">
+                        <input type="submit" id="search-submit" name="search-submit" value="Search">
                         </div>
                     </div>
             </form>

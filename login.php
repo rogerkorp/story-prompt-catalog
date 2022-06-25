@@ -16,9 +16,11 @@ include_once 'connect.php';
     <body id="login-body"> 
         <main>
             <form action="login-process.php" class="login-form" method="post">
+            <h1 class="login-logo"><img src="pen-nib-logo.svg"><span class="login-logo-text">Prompt Catalog</span></h1>
+            <p id="login-subheader">Please log in to continue</p>
                 <input class="login-textbox" type="text" name="username" id="username" placeholder="Enter your username" value="">
-                <input class="login-textbox" type="text" name="password" id="password" placeholder="Enter your password" value="">
-                <input class="login-submit" id="submit" type="submit" name="submit" value="LOG IN">
+                <input class="login-textbox" type="password" name="password" id="password" placeholder="Enter your password" value="">
+                <input class="login-submit" id="login-submit" type="submit" name="submit" value="Log In">
             </form>
     
         </main>

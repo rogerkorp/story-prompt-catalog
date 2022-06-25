@@ -306,11 +306,40 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 .login-form{
      align-items: center;
      background-color: white;
+     border: .075em solid rgb(219, 219, 219);
      border-radius: .5em;
      display: flex;
      flex-direction: column;
      justify-content: center;
-     width: 20em;
+     padding: 2em;
+     width: 19em;
+}
+
+.login-logo{
+     margin: 0;
+}
+
+.login-logo-text{
+     margin-left: .5em;
+}
+
+.login-submit{
+     background-color: var(--ui-primary-accent);
+     border-radius: .25em;
+     border: none;
+     color: var(--white);
+     font-family: 'Poppins';
+     font-size: 1em;
+     font-weight: 550;
+     margin-top: 1.5em;
+     padding: .5em;
+     transition: background-color .3s;
+     width: 6em;
+}
+
+.login-submit:hover{
+     background-color: var(--ui-dark-accent);
+     cursor: pointer;
 }
 
 .login-textbox{
@@ -318,9 +347,9 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
      border: .05em solid rgb(190, 190, 190);
      font-family: 'Poppins';
      font-size: 1em;
-     margin-top: 1em;
-     max-width: 16em;
+     max-width: 100%;
      padding: .5em;
+     margin-top: 1em;
 };
 
 .table-date{ /* Effects the "date" column display in the catalog. */
@@ -349,7 +378,20 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 }
 
 #login-body{
-     background-color: var(--ui-primary-accent);
+     align-items: center;
+     background-color: rgb(247, 247, 248);
+     display: flex;
+     justify-content: center;
+     margin-top: 27vh;
+}
+
+#login-subheader{
+     color: rgb(165, 165, 165);
+     font-size: .9em;
+     font-weight: 300;
+     margin: 0;
+     margin-bottom: .25em;
+     margin-top: .75em;
 }
 
 #prompt{ /* Effects the <textarea> field used to write the prompts */
@@ -428,6 +470,7 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
      color: var(--white);
      font-family: 'Poppins';
      font-size: 1em;
+     font-weight: 550;
      height: 100%;
      margin-right: .75em;
      transition: background-color .3s;
@@ -451,6 +494,7 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
      color: var(--white);
      font-family: 'Poppins';
      font-size: 1em;
+     font-weight: 550;
      margin-top: .4em;
      transition: background-color .3s;
      width: 6em;
