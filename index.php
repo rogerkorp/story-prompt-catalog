@@ -2,6 +2,18 @@
 
 include_once 'connect.php';
 
+function redirect_to($otherplace) {
+    header("Location: {$otherplace}");
+    exit;
+  }
+
+if (isset($_SESSION['user'])){
+    //logged in
+} else {
+    //logged out
+    redirect_to('login.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,10 +52,11 @@ include_once 'connect.php';
             mysqli_free_result($result);
         };
 
+        include_once 'header.php';
+
         ?>
 
         <main>
-        <h1><img src="pen-nib-logo.svg"><span class="header-text">Prompt Catalog</span></h1>
             <div id="entry-form">
                 <form action="enter-prompt.php" method="post" id="prompt-form">
                     <textarea id="prompt" name="prompt" rows="3" maxlength="75" placeholder="Write a short summary of your idea..."></textarea>

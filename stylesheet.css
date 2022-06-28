@@ -34,11 +34,36 @@
      /* User interface accent colors */
      /* Used for buttons, logos, eyecandy, etc. */
 
-     --ui-primary-accent: #7158cd;
-     --ui-dark-accent: #321080;
+     --ui-primary-accent: #c53860;
+     --ui-dark-accent: #5f0621;
+
+
+     --ui-background: rgb(255, 255, 255);
+     --ui-light-grey: rgb(219, 219, 219);
+     --ui-regular-grey: rgb(190, 190, 190);
+     --ui-row-highlights: rgb(247, 247, 248);
+     --ui-dark-grey: rgb(165, 165, 165);
+     --ui-text-color: #1b1028;
+     --ui-white-text-color: rgb(255, 255, 255);
+     --ui-input-background-text: rgb(255, 255, 255) ;
 }
 
+@media (prefers-color-scheme: dark){
+     :root{
+          
+          --ui-primary-accent: #cd5860;
+          --ui-dark-accent: #801032;
 
+          --ui-background: #121212;
+          --ui-light-grey: rgb(63, 63, 63);
+          --ui-regular-grey: rgb(60, 60, 60);
+          --ui-row-highlights: rgb(33, 33, 33);
+          --ui-dark-grey: rgb(93, 93, 93);
+          --ui-text-color: #efefef;
+          --ui-white-text-color: #efefef;
+          --ui-input-background-text: rgb(39, 39, 39) ;
+     }
+}
 
 /* ---------- Custom Font Declarations ---------- */
 
@@ -215,8 +240,8 @@
 /* ---------- HTML Tag Rules ---------- */
 
 body{ /* Effects the main body of the document */
-     background-color: rgb(255, 255, 255);
-     color: #1b1028;
+     background-color: var(--ui-background);
+     color: var(--ui-text-color);
      margin: 0;
 }
 
@@ -229,7 +254,6 @@ footer{ /* Effects the footer information on the document */
 }
 
 h1{ /* Used for Prompt Catalog header logo */
-     margin-bottom: 1em;
      margin-left: .5em;
 }
 
@@ -237,6 +261,24 @@ h2{ /* Old rules. IIRC there used to be a subheader with my name under the H1 ta
      font-weight: normal;
      margin-bottom: 1.5em;
      margin-top: .5em;
+}
+
+header{
+     position: fixed;
+     font-family: 'Poppins';
+     top: 0;
+     width: 100%;
+     background-color: var(--ui-background);
+     border-bottom: .05em solid var(--ui-light-grey);
+     left: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+input{
+     background-color: var(--ui-input-background-text);
+     color: var(--ui-text-color);
 }
 
 input:focus, textarea:focus, select:focus{ /* Removes the default outline from input fields. */
@@ -247,6 +289,7 @@ main{ /* Effects the forms and tables */
      font-family: 'Poppins';
      margin: auto;
      max-width: 765px;
+     margin-top: 8em;
 }
 
 table{ /* Effects the general style of the table */
@@ -255,16 +298,18 @@ table{ /* Effects the general style of the table */
 }
 
 td{ /* Effects the individual cells of information below the table headers */
-     border-bottom: .05em solid rgb(219, 219, 219);
+     border-bottom: .05em solid var(--ui-light-grey);
      padding: 1em;
 }
 
 textarea{ /* Effects the prompt entry field */
      resize: none;
+     background-color: var(--ui-input-background-text);
+     color: var(--ui-text-color);
 }
 
 th{ /* Effects the header cells on the table */
-     border-bottom: .1em solid rgb(219, 219, 219);
+     border-bottom: .1em solid var(--ui-light-grey);
      padding-bottom: .5em;
 }
 
@@ -275,7 +320,7 @@ tr{ /* Effects the individual rows of information on the table. */
 }
 
 tr:hover{ /* Enables the useful hover highlight effect on rows */
-     background-color: rgb(247, 247, 248);
+     background-color: var(--ui-row-highlights);
 }
 
 
@@ -285,7 +330,7 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 .catalog-color{ /* Creates the general template for the color tags in the table. Background color is set to "none" by default. */
      background-color: none;
      border-radius: .15em;
-     color: white;
+     color: var(--ui-white-text-color);
      display: flex;
      justify-content: center;
      padding: .25em;
@@ -293,20 +338,57 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 }
 
 .count{ /* Specifically used for the message underneath the search bar that indicates the total of entries inside the database */
-     color: rgb(165, 165, 165);
+     color: var(--ui-dark-grey);
      display: flex;
      font-size: .75em;
      justify-content: center;
 }
 
+.header-contents{
+     max-width: 800px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     width: 100%;
+}
+
+.header-links{
+     overflow: none;
+     margin-right: 1em;
+}
+
+.header-logo{
+     display: flex;
+     max-width: 765px;
+     justify-content: center;
+     flex-direction: row;
+     align-items: center;
+     color: var(--ui-text-color);
+     text-decoration: none;
+}
+
+.header-link-text{
+     text-decoration: none;
+     color: var(--ui-text-color);
+     transition: color .25s;
+     padding: .4em;
+}
+
+.header-link-text:hover{
+     color: var(--ui-primary-accent);
+}
+
+
+
 .header-text{ /* Effects the header text in the site logo */
+     max-width: 8em;
      margin-left: .5em;
 }
 
 .login-form{
      align-items: center;
-     background-color: white;
-     border: .075em solid rgb(219, 219, 219);
+     background-color: var(--ui-background);
+     border: .075em solid var(--ui-light-grey);
      border-radius: .5em;
      display: flex;
      flex-direction: column;
@@ -327,7 +409,7 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
      background-color: var(--ui-primary-accent);
      border-radius: .25em;
      border: none;
-     color: var(--white);
+     color: var(--ui-white-text-color);
      font-family: 'Poppins';
      font-size: 1em;
      font-weight: 550;
@@ -344,7 +426,7 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 
 .login-textbox{
      border-radius: .25em;
-     border: .05em solid rgb(190, 190, 190);
+     border: .05em solid var(--ui-regular-grey);
      font-family: 'Poppins';
      font-size: 1em;
      max-width: 100%;
@@ -372,21 +454,20 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 }
 
 #entry-form{ /* Effects the div that wraps around the forms that are used to submit prompts into the catalog */
-     background-color: rgb(247, 247, 248);
+     background-color: var(--ui-row-highlights);
      margin: 0;
      padding: 1em;
 }
 
 #login-body{
      align-items: center;
-     background-color: rgb(247, 247, 248);
+     background-color: var(--ui-row-highlights);
      display: flex;
      justify-content: center;
-     margin-top: 27vh;
 }
 
 #login-subheader{
-     color: rgb(165, 165, 165);
+     color: var(--ui-dark-grey);
      font-size: .9em;
      font-weight: 300;
      margin: 0;
@@ -396,7 +477,7 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 
 #prompt{ /* Effects the <textarea> field used to write the prompts */
      border-radius: .25em;
-     border: .075em solid rgb(219, 219, 219);
+     border: .075em solid var(--ui-light-grey);
      display: flex;
      font-family: 'Poppins';
      font-size: 1em;
@@ -416,10 +497,10 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 }
 
 #search-box{ /* Effects the input field for search queries  */
-     border-bottom: .05em solid rgb(219, 219, 219);
+     border-bottom: .05em solid var(--ui-light-grey);
      border-left: none;
      border-right: none;
-     border-top: .05em solid rgb(219, 219, 219);
+     border-top: .05em solid var(--ui-light-grey);
      font-family: 'Poppins';
      font-size: 1em;
      margin: 0;
@@ -450,18 +531,20 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 
 #search-icon{ /* Effects the <div> next to the input field that contains the search icon.  */
      align-items: center;
-     background-color: white;
-     border-bottom: .05em solid rgb(219, 219, 219);
-     border-left: .05em solid rgb(219, 219, 219);
+     background-color: var(--ui-input-background-text);
+     border-bottom: .05em solid var(--ui-light-grey);
+     border-left: .05em solid var(--ui-light-grey);
      border-radius: .25em 0 0 .25em;
      border-right: none;
-     border-top: .05em solid rgb(219, 219, 219);
-     color: white;
+     border-top: .05em solid var(--ui-light-grey);
+     color: var(--ui-white-text-color);
      display: flex;
      font-size: 1em;
      justify-content: center;
      width: 3em;
 }
+
+
 
 #search-submit{ /* Effects the "SEARCH" button */
      background-color: var(--ui-primary-accent);
@@ -491,7 +574,7 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
      background-color: var(--ui-primary-accent);
      border-radius: .25em;
      border: none;
-     color: var(--white);
+     color: var(--ui-white-text-color);
      font-family: 'Poppins';
      font-size: 1em;
      font-weight: 550;
@@ -518,9 +601,9 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 
 #tag-icon{ /* Effects the <div> next to the tag-box that contains the "#" symbol */
      align-items: center;
-     background-color: rgb(190, 190, 190);
+     background-color: var(--ui-regular-grey);
      border-radius: .15em 0 0 .15em;
-     color: white;
+     color: var(--ui-white-text-color);
      display: flex;
      font-size: 1.5em;
      justify-content: center;
@@ -529,7 +612,7 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 
 #tag-box{ /* Effects the input box for the color tags */
      border-radius: 0 .25em .25em 0;
-     border: .05em solid rgb(190, 190, 190);
+     border: .05em solid var(--ui-regular-grey);
      font-family: 'Poppins';
      font-size: 1em;
      margin: 0;
@@ -543,6 +626,13 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 
 @media screen and (max-width: 480px){
      .header-color, .table-color{ /* Hides the color-tag table column unless the browser window is at least 480px wide */
+          display: none;
+     }
+
+}
+
+@media screen and (max-width: 600px){
+     .header-text{
           display: none;
      }
 }

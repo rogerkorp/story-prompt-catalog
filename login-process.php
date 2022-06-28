@@ -47,6 +47,7 @@ if (isset($_POST['login-submit'])){
           $newPassQuery = "UPDATE `users` SET `hashed_password` = '{$newHash}' WHERE (username = '{$username}')";
           echo ($newPassQuery);
         }
+        $_SESSION['user'] = $username;
         header('Location: index.php');
       } else {
         header('Location: login.php?success=false');
