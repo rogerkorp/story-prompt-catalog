@@ -9,13 +9,13 @@
 
 ## Current To-Do List
 
-- Add more functionality to the user registration function, including the creation of user-specific tables and back-up options for password recovery.
-- Create session variables that will allow the user to access their own table of information.
+- Find a way to add back-up options for password recovery.
 - Add in the ability to edit and delete entries from the catalog
 - Add in the ability to change the UI accent colors to either purple, red, yellow, green, blue, or gray.
 - Change the colors for the color tags to give them a more accessible contrast.
 - Validate HTML and CSS, clean up PHP with comments and proper spacing.
 - Add a proper folder structure to keep this all clean.
+- Add more feedback for prompt entries.
 
 ## Wishlist
 
