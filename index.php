@@ -41,7 +41,7 @@ if (isset($_SESSION['user'])){
 
         function search_catalog($search){
             global $db_connection;
-            $query = "SELECT * FROM catalog WHERE prompt LIKE '%" . $search . "%' OR color LIKE '%" . $search . "%' OR id LIKE '%" . $search . "%' ORDER BY id DESC";
+            $query = "SELECT * FROM catalog_" . $_SESSION['user'] . " WHERE prompt LIKE '%" . $search . "%' OR color LIKE '%" . $search . "%' OR id LIKE '%" . $search . "%' ORDER BY id DESC";
             $result = mysqli_query($db_connection, $query);
             if ($result && $result-> num_rows > 0){
                 $results = $result;
@@ -117,7 +117,7 @@ if (isset($_SESSION['user'])){
 
             
 
-                $num_query = "SELECT COUNT(id) from `catalog`";
+                $num_query = "SELECT COUNT(id) from `catalog_" . $_SESSION['user'] . "`";
                 $num_result = mysqli_query($db_connection, $num_query);
             
 

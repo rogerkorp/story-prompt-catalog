@@ -36,8 +36,16 @@ if (isset($_POST['account-submit'])){ //Creates a new account into the system
         $query .= "VALUES ('{$username}', '{$hash}')";
         $db_results = mysqli_query($db_connection, $query);
         if($db_results){
-            header ('Location: login.php'); 
-            end;//Redirects user to login page.
+
+            $new_user_query = "CREATE TABLE `prompt_catalog`.`catalog_" .  $username . "` (`id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID Number', `date` date NOT NULL COMMENT 'Date of entry creation.', `prompt` longtext NOT NULL COMMENT 'The full prompt (max. 100 characters)', `color` varchar(20) NOT NULL COMMENT 'A color that describes the vibe of the project.', PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8";
+            $new_user_results = mysqli_query($db_connection, $new_user_query);
+            if($new_user_results){
+              header ('Location: login.php'); 
+              end;
+            } else {
+              echo "User Results Query Failed.";
+            }
+            //Redirects user to login page.
         } else {
             echo "Query failed.";
         };
