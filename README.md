@@ -9,13 +9,13 @@
 
 ## Current To-Do List
 
-- Clean up the login system & user registration pages.
 - Add more functionality to the user registration function, including the creation of user-specific tables and back-up options for password recovery.
 - Create session variables that will allow the user to access their own table of information.
-- Header navigation that allows for a means to browse the complete catalog, download a copy of the catalog as a CSV file, and a simple log-out function.
 - Add in the ability to edit and delete entries from the catalog
-- A dark-mode UI based on the system preference.
 - Add in the ability to change the UI accent colors to either purple, red, yellow, green, blue, or gray.
+- Add in a hover effect to the logo link, and change the color of the text on the search button (I think it's the off grey-ish white as opposed to the pure white)
+- Change the colors for the color tags to give them a more accessible contrast.
+- Validate HTML and CSS, clean up PHP with comments and proper spacing.
 
 ## Wishlist
 
