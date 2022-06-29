@@ -16,6 +16,8 @@
 - Validate HTML and CSS, clean up PHP with comments and proper spacing.
 - Add a proper folder structure to keep this all clean.
 - Add more feedback for prompt entries.
+- Allow the user to see, by default, the last twenty or so entires added into the catalog.
+- Expand tagging options beyond colors.
 
 ## Wishlist
 
