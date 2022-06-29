@@ -50,9 +50,6 @@
 
 @media (prefers-color-scheme: dark){
      :root{
-          
-          --ui-primary-accent: #b64362;
-          --ui-dark-accent: #801032;
 
           --ui-background: #121212;
           --ui-light-grey: rgb(63, 63, 63);
