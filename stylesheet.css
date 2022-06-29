@@ -34,7 +34,7 @@
      /* User interface accent colors */
      /* Used for buttons, logos, eyecandy, etc. */
 
-     --ui-primary-accent: #c53860;
+     --ui-primary-accent: #b64362;
      --ui-dark-accent: #5f0621;
 
 
@@ -51,7 +51,7 @@
 @media (prefers-color-scheme: dark){
      :root{
           
-          --ui-primary-accent: #cd5860;
+          --ui-primary-accent: #b64362;
           --ui-dark-accent: #801032;
 
           --ui-background: #121212;
@@ -405,6 +405,22 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
      margin-left: .5em;
 }
 
+.login-question{
+     margin-top: 1.5em;
+     font-size: .9em;
+     color: var(--ui-dark-grey);
+}
+
+.login-question-link{
+     color: var(--ui-primary-accent);
+     font-weight: 500;
+     text-decoration: none;
+}
+
+.login-question-link:hover{
+     color: var(--ui-dark-accent);
+}
+
 .login-submit{
      background-color: var(--ui-primary-accent);
      border-radius: .25em;
@@ -415,8 +431,10 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
      font-weight: 550;
      margin-top: 1.5em;
      padding: .5em;
+     padding-left: 1.25em;
+     padding-right: 1.25em;
      transition: background-color .3s;
-     width: 6em;
+     width: auto
 }
 
 .login-submit:hover{
@@ -432,7 +450,8 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
      max-width: 100%;
      padding: .5em;
      margin-top: 1em;
-};
+}
+
 
 .table-date{ /* Effects the "date" column display in the catalog. */
      font-variant-numeric: tabular-nums;
@@ -514,6 +533,13 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
      display: flex;
      justify-content: center;
      padding-top: 2em;
+}
+
+#login-error{ /* Effects the error message that occurs if no matches were found in database query */
+     color: var(--red);
+     display: flex;
+     justify-content: center;
+     padding-top: 1em;
 }
 
 #search-form{ /* Effects the <form> tags used to nest the search box. */

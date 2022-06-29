@@ -2,6 +2,17 @@
 
 include_once 'connect.php';
 
+function redirect_to($otherplace) {
+    header("Location: {$otherplace}");
+    exit;
+  }
+
+if (isset($_SESSION['user'])){ //Checks to see if there's already an open session
+    redirect_to('index.php'); //If so, the user will be kicked out of the login page, and redirected back to the index.
+} else {
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +28,21 @@ include_once 'connect.php';
         <main>
             <form action="login-process.php" class="login-form" method="post">
             <h1 class="login-logo"><img src="pen-nib-logo.svg"><span class="login-logo-text">Prompt Catalog</span></h1>
-            <p id="login-subheader">Create your Account</p>
-                <input class="login-textbox" type="text" name="username" id="username" placeholder="Enter your username" value="">
-                <input class="login-textbox" type="password" name="password" id="password" placeholder="Enter your password" value="">
-                <input class="login-submit" id="login-submit" type="submit" name="account-submit" value="Create your Account">
+            <p id="login-subheader">Create your account</p>
+            <?php
+                if (isset($_GET['usercheck'])){
+                echo '<p id="login-error">Invalid username or password.</p>';
+                };
+                if (isset($_GET['passcheck'])){
+                    echo '<p id="login-error">Mismatched passwords.</p>';
+                ;}
+
+            ?>
+                <input class="login-textbox" type="text" name="username" id="username" placeholder="Enter a username" value="">
+                <input class="login-textbox" type="password" name="password" id="password" placeholder="Enter a password" value="">
+                <input class="login-textbox" type="password" name="confirm-password" id="confirm-password" placeholder="Confirm password" value="">
+                <input class="login-submit" id="login-submit" type="submit" name="account-submit" value="Create Account">
+                <p class="login-question">Already have an account? <a class="login-question-link" href="login.php">Log in!</a></p>
             </form>
     
         </main>

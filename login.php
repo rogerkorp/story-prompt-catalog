@@ -2,6 +2,18 @@
 
 include_once 'connect.php';
 
+function redirect_to($otherplace) {
+    header("Location: {$otherplace}");
+    exit;
+  }
+
+if (isset($_SESSION['user'])){ //Checks to see if there's already an open session
+    redirect_to('index.php'); //If so, the user will be kicked out of the login page, and redirected back to the index.
+} else {
+
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -20,13 +32,13 @@ include_once 'connect.php';
             <p id="login-subheader">Please log in to continue</p>
             <?php
               if (isset($_GET['success'])){
-                echo '<p id="search-error">Incorrect username or password</p>';
+                echo '<p id="login-error">Incorrect username or password</p>';
                 }
             ?>
                 <input class="login-textbox" type="text" name="username" id="username" placeholder="Enter your username" value="">
                 <input class="login-textbox" type="password" name="password" id="password" placeholder="Enter your password" value="">
                 <input class="login-submit" id="login-submit" type="submit" name="login-submit" value="Log In">
-                <p>New to Prompt Catalog?<a href="create-account.php">Register here!</a></p>
+                <p class="login-question">Don't have an account? <a class="login-question-link" href="create-account.php">Create one!</a></p>
             </form>
     
         </main>

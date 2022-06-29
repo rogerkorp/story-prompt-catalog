@@ -1,6 +1,8 @@
 <?php
 include_once 'connect.php';
 
+$valid_name = false;
+
 if (mysqli_connect_errno()) {
     die ("Database connection failed: " .
       mysqli_connect_error() .
@@ -10,19 +12,75 @@ if (mysqli_connect_errno()) {
 
 if (isset($_POST['account-submit'])){ //Creates a new account into the system
   $username = mysqli_real_escape_string($db_connection, $_POST['username']);
-  $password = mysqli_real_escape_string($db_connection, $_POST['password']);
-  $hash = password_hash($password, PASSWORD_DEFAULT); //Hashes the users password before entry into the database.
-  $query = "INSERT INTO `users` (`username`, `hashed_password`) "; 
-  $query .= "VALUES ('{$username}', '{$hash}')";
-  echo ($query);
 
-  $db_results = mysqli_query($db_connection, $query);
-  if($db_results){
-    header ('Location: login.php'); //Redirects user to login page.
+  if ($username){
+    $user_query = "SELECT id FROM users WHERE "; 
+    $user_query .= "username = '{$username}'";
+    $user_results = mysqli_query($db_connection, $user_query);
+    $total_count = $user_results->num_rows;
+    $total_row_count = $total_count;
+
+    if(($total_row_count) == 0){
+      $valid_name = true;
+    } else {
+      $valid_name = false;
+    };
+
+    if ($valid_name == true){
+      $password = mysqli_real_escape_string($db_connection, $_POST['password']);
+      $confirm_password = mysqli_real_escape_string($db_connection, $_POST['confirm-password']);
+      
+      if ($password == $confirm_password){
+        $hash = password_hash($password, PASSWORD_DEFAULT); //Hashes the users password before entry into the database.
+        $query = "INSERT INTO `users` (`username`, `hashed_password`) "; 
+        $query .= "VALUES ('{$username}', '{$hash}')";
+        $db_results = mysqli_query($db_connection, $query);
+        if($db_results){
+            header ('Location: login.php'); 
+            end;//Redirects user to login page.
+        } else {
+            echo "Query failed.";
+        };
+  
+      } else {
+        header ('Location: create-account.php?passcheck=false'); 
+      };
+
+    } else if ($valid_name == false){
+      header ('Location: create-account.php?usercheck=false');
+    };
+
   } else {
-    echo "Query failed.";
+    header ('Location: create-account.php?usercheck=false');
   };
-}
+/* 
+  $password = mysqli_real_escape_string($db_connection, $_POST['password']);
+  $confirm_password = mysqli_real_escape_string($db_connection, $_POST['confirm-password']);
+
+  if ($valid_name == true){
+    if ($password == $confirm_password){
+      $hash = password_hash($password, PASSWORD_DEFAULT); //Hashes the users password before entry into the database.
+      $query = "INSERT INTO `users` (`username`, `hashed_password`) "; 
+      $query .= "VALUES ('{$username}', '{$hash}')";
+      $db_results = mysqli_query($db_connection, $query);
+      if($db_results){
+          header ('Location: login.php'); 
+          end;//Redirects user to login page.
+      } else {
+          echo "Query failed.";
+      };
+
+    } else {
+      header ('Location: create-account.php?passcheck=false'); 
+      end;
+    };
+  }; */
+
+
+};
+
+
+
 
 //To do:
 
