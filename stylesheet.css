@@ -383,7 +383,13 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 .header-text{ /* Effects the header text in the site logo */
      max-width: 8em;
      margin-left: .5em;
+     transition: color .25s;
 }
+
+.header-text:hover{ /* Effects the header text in the site logo */
+     color: var(--ui-primary-accent)
+}
+
 
 .login-form{
      align-items: center;
@@ -576,7 +582,7 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
      background-color: var(--ui-primary-accent);
      border-radius: 0 .25em .25em 0;
      border: none;
-     color: var(--white);
+     color: var(--ui-white-text-color);
      font-family: 'Poppins';
      font-size: 1em;
      font-weight: 550;

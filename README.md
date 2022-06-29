@@ -13,9 +13,9 @@
 - Create session variables that will allow the user to access their own table of information.
 - Add in the ability to edit and delete entries from the catalog
 - Add in the ability to change the UI accent colors to either purple, red, yellow, green, blue, or gray.
-- Add in a hover effect to the logo link, and change the color of the text on the search button (I think it's the off grey-ish white as opposed to the pure white)
 - Change the colors for the color tags to give them a more accessible contrast.
 - Validate HTML and CSS, clean up PHP with comments and proper spacing.
+- Add a proper folder structure to keep this all clean.
 
 ## Wishlist
 
