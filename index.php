@@ -23,7 +23,7 @@ if (isset($_SESSION['user'])){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Prompt Catalog</title>
         <link rel="stylesheet" href="stylesheet.css">
-        <link rel="icon" sizes="any" type="image/svg+xml" href="pen-nib-logo.svg">
+        <link rel="icon" sizes="any" type="image/svg+xml" href="pencil-logo.svg">
     </head>
     <body> 
 
@@ -41,7 +41,7 @@ if (isset($_SESSION['user'])){
 
         function search_catalog($search){
             global $db_connection;
-            $query = "SELECT * FROM catalog_" . $_SESSION['user'] . " WHERE prompt LIKE '%" . $search . "%' OR color LIKE '%" . $search . "%' OR id LIKE '%" . $search . "%' ORDER BY id DESC";
+            $query = "SELECT * FROM catalog_" . $_SESSION['user'] . " WHERE prompt LIKE '%" . $search . "%' OR tag LIKE '%" . $search . "%' OR id LIKE '%" . $search . "%' ORDER BY id DESC";
             $result = mysqli_query($db_connection, $query);
             if ($result && $result-> num_rows > 0){
                 $results = $result;
@@ -63,37 +63,15 @@ if (isset($_SESSION['user'])){
 
                     <div id="tag-input">
                         <div id="tag-icon">#</div>
-                        <input list="colors" name="color" id="tag-box"
-                        pattern="white|beige|butter|peach|pink|coral|fuchsia|red|scarlet|orange|ocher|yellow|olive|chartreuse|green|avocado|mint|turquoise|lightblue|blue|violet|purple|brown|gray|black"
-                        title="Must be a noted color"
-                        placeholder="color tag..."
-                        >
-                        <datalist id="colors">
-                            <option value="white">
-                            <option value="beige">
-                            <option value="butter">
-                            <option value="peach">
-                            <option value="pink">
-                            <option value="coral">
-                            <option value="fuchsia">
-                            <option value="red">
-                            <option value="scarlet">
-                            <option value="orange">
-                            <option value="ocher">
-                            <option value="yellow">
-                            <option value="olive">
-                            <option value="chartreuse">
-                            <option value="green">
-                            <option value="avocado">
-                            <option value="mint">
-                            <option value="turquoise">
-                            <option value="lightblue">
-                            <option value="blue">
-                            <option value="violet">
-                            <option value="purple">
-                            <option value="brown">
-                            <option value="gray">
-                            <option value="black">
+                        <input list="tags" name="tag" id="tag-box" title="Tag your idea" placeholder="tag" maxlength="10">
+                        <datalist id="tags">
+                            <?php
+                                $datalist_query = "SELECT DISTINCT `tag` from `catalog_" . $_SESSION['user'] . "`";
+                                $datalist_results = mysqli_query($db_connection, $datalist_query);
+                                while ($row = mysqli_fetch_assoc($datalist_results)){
+                                    echo '<option value="' . $row['tag'] . '">';
+                                };
+                            ?>
                         </datalist>
 
                     </div>
@@ -147,7 +125,7 @@ if (isset($_SESSION['user'])){
                 <tr>
                     <th class="header-id">ID</th>
                     <th class="header-date">DATE</th>
-                    <th class="header-color">#</th>
+                    <th class="header-tag">#</th>
                     <th>PROMPT</th>
                 </tr>';
 
@@ -155,7 +133,7 @@ if (isset($_SESSION['user'])){
                     echo '<tr>';
                     echo '<td class="table-id">' . $row['id'] . '</td>';
                     echo '<td class="table-date">' . $row['date'] . '</td>';
-                    echo '<td class="table-color"><span class="catalog-color" style="background-color:var(--' . $row['color'] . ');">' . $row['color'] . '</span></td>';
+                    echo '<td class="table-tag">' . $row['tag'] . '</td>';
                     echo '<td>' . $row['prompt'] . '</td>';
                     echo '</tr>';
                 };

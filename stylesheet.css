@@ -34,8 +34,8 @@
      /* User interface accent colors */
      /* Used for buttons, logos, eyecandy, etc. */
 
-     --ui-primary-accent: #b64362;
-     --ui-dark-accent: #5f0621;
+     --ui-primary-accent: rgb(226, 33, 69);
+     --ui-dark-accent: rgb(144, 8, 65);
 
 
      --ui-background: rgb(255, 255, 255);
@@ -247,10 +247,15 @@ footer{ /* Effects the footer information on the document */
      font-family: 'Poppins';
      justify-content: center;
      margin-top: 1em;
+     color: var(--ui-regular-grey);
+     font-size: .8em;
 }
 
 h1{ /* Used for Prompt Catalog header logo */
      margin-left: .5em;
+     display: flex;
+     align-items: center;
+     white-space: nowrap;
 }
 
 h2{ /* Old rules. IIRC there used to be a subheader with my name under the H1 tags, but that info has since been moved to the footer. */
@@ -323,15 +328,6 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 
 /* ----------  Class-Specific Rules ---------- */
 
-.catalog-color{ /* Creates the general template for the color tags in the table. Background color is set to "none" by default. */
-     background-color: none;
-     border-radius: .15em;
-     color: var(--ui-white-text-color);
-     display: flex;
-     justify-content: center;
-     padding: .25em;
-     text-align: center;
-}
 
 .count{ /* Specifically used for the message underneath the search bar that indicates the total of entries inside the database */
      color: var(--ui-dark-grey);
@@ -464,6 +460,10 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
      font-variant-numeric: tabular-nums;
      font-weight: bold;
      text-align: center;
+}
+
+.table-tag{
+     font-style: italic;
 }
 
 
@@ -653,7 +653,7 @@ tr:hover{ /* Enables the useful hover highlight effect on rows */
 /* ----------  Media Queries ---------- */
 
 @media screen and (max-width: 480px){
-     .header-color, .table-color{ /* Hides the color-tag table column unless the browser window is at least 480px wide */
+     .header-tag, .table-tag{ /* Hides the color-tag table column unless the browser window is at least 480px wide */
           display: none;
      }
 

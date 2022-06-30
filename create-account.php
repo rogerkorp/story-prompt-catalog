@@ -22,12 +22,12 @@ if (isset($_SESSION['user'])){ //Checks to see if there's already an open sessio
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Prompt Catalog</title>
         <link rel="stylesheet" href="stylesheet.css">
-        <link rel="icon" sizes="any" type="image/svg+xml" href="pen-nib-logo.svg">
+        <link rel="icon" sizes="any" type="image/svg+xml" href="pencil-logo.svg">
     </head>
     <body id="login-body"> 
         <main>
             <form action="login-process.php" class="login-form" method="post">
-            <h1 class="login-logo"><img src="pen-nib-logo.svg"><span class="login-logo-text">Prompt Catalog</span></h1>
+            <h1 class="login-logo"><img src="pencil-logo.svg" width="50px"><span class="login-logo-text">Prompt Catalog</span></h1>
             <p id="login-subheader">Create your account</p>
             <?php
                 if (isset($_GET['usercheck'])){

@@ -14,11 +14,11 @@ if (mysqli_connect_errno()) {
 if (isset($_POST['submit'])){
 
 $prompt = mysqli_real_escape_string($db_connection, $_POST['prompt']);
-$color = mysqli_real_escape_string($db_connection, $_POST['color']);
+$tag = mysqli_real_escape_string($db_connection, $_POST['tag']);
 $date = date('m-d-Y');
 
-$query = "INSERT INTO `catalog_" . $_SESSION['user'] . "` (`date`, `prompt`, `color`) "; 
-$query .= "VALUES (str_to_date('{$date}', '%m-%d-%Y'), '{$prompt}', '{$color}')";
+$query = "INSERT INTO `catalog_" . $_SESSION['user'] . "` (`date`, `prompt`, `tag`) "; 
+$query .= "VALUES (str_to_date('{$date}', '%m-%d-%Y'), '{$prompt}', '{$tag}')";
 
 echo ($query);
 
