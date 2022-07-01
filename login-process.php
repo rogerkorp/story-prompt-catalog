@@ -45,10 +45,15 @@ if (isset($_POST['account-submit'])){ //Creates a new account into the system
             } else {
               echo "User Results Query Failed.";
             }
+            
+            mysqli_free_result($new_user_results);
+
             //Redirects user to login page.
         } else {
             echo "Query failed.";
         };
+
+        mysqli_free_result($db_results);
   
       } else {
         header ('Location: create-account.php?passcheck=false'); 
@@ -57,6 +62,8 @@ if (isset($_POST['account-submit'])){ //Creates a new account into the system
     } else if ($valid_name == false){
       header ('Location: create-account.php?usercheck=false');
     };
+
+    mysqli_free_result($user_results);
 
   } else {
     header ('Location: create-account.php?usercheck=false');
@@ -121,6 +128,9 @@ if (isset($_POST['login-submit'])){
       
     }
 
+    mysqli_free_result($db_results);
+
 };
+
 
 ?>

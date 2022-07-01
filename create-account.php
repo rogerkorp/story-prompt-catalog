@@ -38,9 +38,9 @@ if (isset($_SESSION['user'])){ //Checks to see if there's already an open sessio
                 ;}
 
             ?>
-                <input class="login-textbox" type="text" name="username" id="username" placeholder="Enter a username" value="">
-                <input class="login-textbox" type="password" name="password" id="password" placeholder="Enter a password" value="">
-                <input class="login-textbox" type="password" name="confirm-password" id="confirm-password" placeholder="Confirm password" value="">
+                <input class="login-textbox" type="text" name="username" id="username" placeholder="Enter a username" value="" required>
+                <input class="login-textbox" type="password" name="password" id="password" placeholder="Enter a password" value="" required>
+                <input class="login-textbox" type="password" name="confirm-password" id="confirm-password" placeholder="Confirm password" value="" required>
                 <input class="login-submit" id="login-submit" type="submit" name="account-submit" value="Create Account">
                 <p class="login-question">Already have an account? <a class="login-question-link" href="login.php">Log in!</a></p>
             </form>
